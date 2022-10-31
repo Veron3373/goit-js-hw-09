@@ -1,21 +1,21 @@
 {
-  "name": "parcel-project-template",
+  "name": "goit-js-hw-09",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://github.io/veron3373/parcel-project-template",
+  "homepage": "https://veron3373.github.io/goit-js-hw-09/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/veron3373/parcel-project-template.git"
+    "url": "git+https://veron3373.github.com/goit-js-hw-09.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/veron3373/parcel-project-template/issues"
+    "url": "https://veron3373.github.com/goit-js-hw-09/issues"
   },
   "dependencies": {
     "bower-npm-resolver": "^0.11.0",

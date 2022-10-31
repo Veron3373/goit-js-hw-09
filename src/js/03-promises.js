@@ -1,3 +1,30 @@
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@Veron3373 
+DianaLauzhyna
+/
+goit-js-hw-09
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Security
+Insights
+goit-js-hw-09/src/js/03-promises.js /
+@DianaLauzhyna
+DianaLauzhyna #js
+Latest commit df399d9 on 17 Aug
+ History
+ 1 contributor
+47 lines (38 sloc)  1.14 KB
+
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const formEl = document.querySelector('.form');
@@ -45,3 +72,18 @@ function generatePromises(delay, step, amount) {
     delay += step;
   }
 }
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+goit-js-hw-09/03-promises.js at main · DianaLauzhyna/goit-js-hw-09
