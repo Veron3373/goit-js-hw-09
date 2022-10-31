@@ -5,17 +5,17 @@
   "homepage": "https://veron3373.github.io/parcel-project-template",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://veron3373.github.com/parcel-project-template.git"
+    "url": "git+https://veron3373/github.com/parcel-project-template.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://veron3373.github.com/parcel-project-template/issues"
+    "url": "https://github.com/veron3373/parcel-project-template/issues"
   },
   "dependencies": {
     "bower-npm-resolver": "^0.11.0",
