@@ -2,14 +2,14 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "",
-  "homepage": "https://veron3373.github.io/parcel-project-template",
+  "homepage": "https://github.io/veron3373/parcel-project-template",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-09/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://veron3373/github.com/parcel-project-template.git"
+    "url": "git+https://github.com/veron3373/parcel-project-template.git"
   },
   "keywords": [],
   "author": "",
