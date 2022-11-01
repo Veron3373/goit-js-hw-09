@@ -1,89 +1,54 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@Veron3373 
-DianaLauzhyna
-/
-goit-js-hw-09
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Security
-Insights
-goit-js-hw-09/src/js/03-promises.js /
-@DianaLauzhyna
-DianaLauzhyna #js
-Latest commit df399d9 on 17 Aug
- History
- 1 contributor
-47 lines (38 sloc)  1.14 KB
-
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
-const formEl = document.querySelector('.form');
+import 'notiflix/dist/notiflix-3.2.5.min.css';
 
+//* DOM
+const refs = {
+  form: document.querySelector('form'),
+};
+
+//* submit
+refs.form.addEventListener('submit', onFormSubmit);
+
+//* function елементів
+function onFormSubmit(e) {
+  e.preventDefault();
+  processTask(getInputValues(refs.form.elements));
+}
+
+//* Деструктуризація
+function getInputValues({ delay, step, amount }) {
+  return { delay: Number(delay.value), step: Number(step.value), amount: Number(amount.value) };
+}
+
+//* Виклик n разів скільки в amount (random + виклик resolve reject)
 function createPromise(position, delay) {
+  const shouldResolve = Math.random() > 0.3;
+
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      const shouldResolve = Math.random() > 0.3;
-
       if (shouldResolve) {
+        // Fulfill
         resolve({ position, delay });
       } else {
+        // Reject
         reject({ position, delay });
       }
     }, delay);
   });
 }
 
-formEl.addEventListener('submit', onFormSubmit);
-
-function onFormSubmit(event) {
-  event.preventDefault();
-
-  const delay = +formEl.elements.delay.value;
-  const step = +formEl.elements.step.value;
-  const amount = +formEl.elements.amount.value;
-
-  generatePromises(delay, step, amount);
-}
-
-function generatePromises(delay, step, amount) {
-  for (let i = 1; i <= amount; i += 1) {
-    createPromise(i, delay)
+//* Формування кількості викликів
+function processTask({ delay, step, amount }) {
+  for (let i = 0; i < amount; i += 1) {
+    console.log(i + 1, delay + step * i);
+    createPromise(i + 1, delay + step * i)
       .then(({ position, delay }) => {
-        Notify.success(`Fulfilled promise ${position} in ${delay}ms`, {
-          timeout: 10000,
-        });
+        Notify.success(`Виконана обіцянка (${position} з ${amount} в ${delay} ms)  ✅`);
       })
       .catch(({ position, delay }) => {
-        Notify.failure(`Rejected promise ${position} in ${delay}ms`, {
-          timeout: 10000,
-        });
+        Notify.failure(`Скасована обіцянка (${position} з ${amount} в ${delay} ms) ❌`);
       });
-
-    delay += step;
   }
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-goit-js-hw-09/03-promises.js at main · DianaLauzhyna/goit-js-hw-09
+
