@@ -62,15 +62,17 @@ class Timer {
       return;
     }
     const startTime = new Date(refs.inputEl.value).getTime();
-
     this.isActive = true;
-
     this.intervalId = setInterval(() => {
       const currentTime = new Date().getTime();
-      const deltaTime = startTime - currentTime;
-      const time = this.getTimeComponents(deltaTime);
+      if (startTime >= currentTime) {
+        const deltaTime = startTime - currentTime;
+        const time = this.getTimeComponents(deltaTime);
+        this.onTick(time);
+      } else {
+        stop()
+      }
 
-      this.onTick(time);
     }, 1000);
   }
 
