@@ -21,6 +21,9 @@ function getInputValues({ delay, step, amount }) {
   return { delay: Number(delay.value), step: Number(step.value), amount: Number(amount.value) };
 }
 
+let resolvePromise = 0
+let rejectPromise = 0
+
 //* Виклик n разів скільки в amount (random + виклик resolve reject)
 function createPromise(position, delay) {
   const shouldResolve = Math.random() > 0.3;
@@ -36,19 +39,22 @@ function createPromise(position, delay) {
       }
     }, delay);
   });
-}
+}     
 
 //* Формування кількості викликів
 function processTask({ delay, step, amount }) {
   for (let i = 0; i < amount; i += 1) {
-    console.log(i + 1, delay + step * i);
+    // console.log(i + 1, delay + step * i);
     createPromise(i + 1, delay + step * i)
       .then(({ position, delay }) => {
-        Notify.success(`Виконана обіцянка (${position} з ${amount} в ${delay} ms)  ✅`);
+        resolvePromise += 1
+        Notify.success(`Повідомлення № ${position} з ${amount}. Виконано обіцянку в кількості ${resolvePromise} шт за ${delay} ms. ✅`)
       })
       .catch(({ position, delay }) => {
-        Notify.failure(`Скасована обіцянка (${position} з ${amount} в ${delay} ms) ❌`);
-      });
+        rejectPromise += 1
+        Notify.failure(`Повідомлення № ${position} з ${amount}. Скасовано обіцянку в кількості ${rejectPromise} шт за ${delay} ms. ❌`)
+      })   
+     
   }
-}
 
+}
